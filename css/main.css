@@ -42,17 +42,47 @@ a:focus, a:hover {
     color: inherit;
 }
 
+img{
+    opacity: 0.9;
+    border-radius: 10%;
+    -webkit-transition: opacity 0.4s;
+}
+img:hover{
+    opacity: 1;
+}
+
 h1, h2, h3,
  h5, h6 {
     font-family: 'Open Sans', sans-serif;
 	font-weight: normal;
 	margin: 0;
 }
-h4{
+button{
     font-family: 'Open Sans', sans-serif;
 	font-weight: normal;
-	margin: 0;
-    top: 400px;
+    top: 760px;
+    left: 44%;
+    color: black;
+    position: absolute;
+    display: inline;
+    background-color: #ff9900;
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 2px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    opacity: 0.92;
+    -webkit-transition: box-shadow opacity 0.3s;
+}
+button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    opacity: 1;
+}
+.fb{
+    top: 650px;
+    left: 45%;
+    position: absolute;
+    display: inline;    
 }
 
 .clear:before,
@@ -126,7 +156,7 @@ width: 11px;
 }
 
 .btn-blue {
-  background-color: #00c7fc;
+  background-color: #ff9900;
   color: #fff;
   font-size: 16px;
   line-height: 24px;
@@ -187,8 +217,9 @@ width: 11px;
 }
 
 .navigation .navbar-nav > li.current > a {
-  color: #00C7FC;
-  border-bottom: 1px solid #00C7FC;
+  /*color: #ff9900;*/
+  color: #ff9900;
+  border-bottom: 1px solid #ff9900;
 }
 
 .animated-nav .navigation .navbar-nav > li.current > a {
@@ -259,11 +290,11 @@ width: 11px;
 }
 
 .carousel-caption > div {
-  background-color: rgba(15,116,143,0.8);
-  padding: 60px 50px 80px 20%;
+  background-color: rgba(255,153,0,0.78);
+  padding: 15px 0px 5px 6%;
   position: absolute;
   top: 25%;
-  width: 76%;
+  width: 29%;
 }
 
 #home-carousel .carousel-inner h2 {
@@ -318,7 +349,7 @@ width: 11px;
 }
 
 .carousel-indicators .active {
-  background-color: #00c7fc;
+  background-color: #ff9900;
   border: 0;
 }
 
@@ -332,7 +363,7 @@ width: 11px;
 }
 
 #service .media .media-body h3{
-    color: #00C7FC;
+    color: #ff9900;
     font-weight: 400;
     font-size: 20px;
     margin-bottom: 15px;
@@ -366,7 +397,7 @@ width: 11px;
 }
 
 .service-item h3 {
-  color: #00c7fc;
+  color: #ff9900;
   font-size: 20px;
   margin-bottom: 28px;
 }
@@ -455,7 +486,7 @@ width: 11px;
 
 .project-filter ul li a:hover,
 .project-filter ul li a.active {
-    background-color: #00C7FC;
+    background-color: #ff9900;
     color: #fff;
 }
 
@@ -665,8 +696,8 @@ figcaption.mask span {
 
 .owl-controls .owl-page.active span,
 .owl-controls .owl-page:hover span {
-  background-color: #00C7FC;
-  border-color: #00C7FC;
+  background-color: #ff9900;
+  border-color: #ff9900;
 }
 
 
@@ -689,7 +720,7 @@ figcaption.mask span {
 .progress .bar {
   width: 0;
   height: 25px;
-  background-color: #00C7FC;
+  background-color: #ff9900;
 
   -webkit-transition: width 0.6s ease;
      -moz-transition: width 0.6s ease;
@@ -710,7 +741,7 @@ figcaption.mask span {
 }
 
 .progress-success .bar, .progress-green .bar {
-  background-color: #00C7FC;
+  background-color: #ff9900;
 
 }
 
@@ -748,7 +779,7 @@ figcaption.mask span {
 }
 
 .pricing-table .price {
-  border-top: 1px solid #00c7fc;
+  border-top: 1px solid #ff9900;
   padding: 35px 0 45px;
 }
 
@@ -776,8 +807,8 @@ figcaption.mask span {
 }
 
 .pricing-table ul {
-  border-bottom: 1px solid #00c7fc;
-  border-top: 1px solid #00c7fc;
+  border-bottom: 1px solid #ff9900;
+  border-top: 1px solid #ff9900;
 }
 
 .pricing-table ul li {
@@ -787,7 +818,7 @@ figcaption.mask span {
 }
 
 .pricing-table ul li:after {
-  border-bottom: 1px solid #00c7fc;
+  border-bottom: 1px solid #ff9900;
   bottom: 0;
   content: "";
   display: block;
@@ -806,7 +837,7 @@ figcaption.mask span {
 }
 
 .btn-price {
-  border: 1px solid #00c7fc;
+  border: 1px solid #ff9900;
   color: #1f2021;
   margin-top: 40px;
   padding: 10px 30px;
@@ -854,7 +885,7 @@ figcaption.mask span {
 }
 
 .subscription-form #mail-submit {
-  background-color: #00c7fc;
+  background-color: #ff9900;
   border: 0 none;
   color: #fff;
   padding: 16px 35px;
@@ -949,7 +980,7 @@ figcaption.mask span {
 }
 
 .footer-social ul li a:hover {
-  color: #00C7FC;
+  color: #ff9900;
 }
 
 .copyright {
@@ -959,7 +990,7 @@ figcaption.mask span {
 }
 
 .copyright a {
-    color: #00C7FC;
+    color: #ff9900;
 }
 
 .copyright a:hover {
