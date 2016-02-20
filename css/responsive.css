@@ -127,11 +127,11 @@ px      68    160    252    */
 }
 
 .navigation .navbar-nav > li > a {
-  background-color: #ff9900;
+  background-color: #00c7fc;
 }
 
 .navigation .navbar-nav > li > a:hover {
-  background-color: #ff9900;
+  background-color: #00c7fc;
 }
 
 .navigation .navbar-nav > li.current > a {
