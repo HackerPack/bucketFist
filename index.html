@@ -23,7 +23,6 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-   <script src="js/facebook.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,8 +46,7 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-4 col-lg-offset-4">
-
-                    <a class="btn btn-block btn-social btn-lg btn-facebook" data-provider="facebook" onclick="checkLoginState();"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+                    <a class="btn btn-block btn-social btn-lg btn-facebook" data-provider="facebook" onclick="javascript:loginFB();"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
                   </div>
                 </div>
                 <div class="row">
@@ -68,6 +66,7 @@
 
    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
    <script src="js/fire_base_constants.js"></script>
+   <script src="js/login.js"></script>
    <script>
      checkSession();
    </script>
