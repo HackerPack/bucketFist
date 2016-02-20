@@ -110,6 +110,7 @@ function checkSessionLogin(){
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
+    	alert(response.authResponse.accessToken);
       // Logged into your app and Facebook.
       window.location.href = "pages/index.html";
     } else if (response.status === 'not_authorized') {
