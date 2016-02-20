@@ -1,0 +1,30 @@
+Searching 965 files for "hoyadisastermanagement" (case sensitive)
+
+/Users/Diksha/projects/bucketFist/zother/firebasetwitterwidgetcreation.py:
+    1  from firebase import firebase
+    2: firebase = firebase.FirebaseApplication('https://hoyadisastermanagement.firebaseio.com/',None)
+    3  
+    4  #new_user = 'Ozgur Vatansever'
+
+/Users/Diksha/projects/bucketFist/zother/js/fire_base_constants.js:
+    1: var FIRE_BASE_URL = "https://hoyadisastermanagement.firebaseio.com/";
+    2  var TASKS_TABLE = "tasks/";
+    3  var HASHTAGS_TABLE = "twitterhashtags/";
+
+/Users/Diksha/projects/bucketFist/zother/spark/sparktrial.py:
+   32  jsons = json.dumps(tweetDict)
+   33  print str(jsons)
+   34: #requests.post('http://hoyadisastermanagement.firebaseio.com/tasks2',json.dumps(tweetDict))
+   35: command = "curl -X PUT -d '" + str(jsons) + "' 'https://hoyadisastermanagement.firebaseio.com/tasks2.json'"
+   36  #print command
+   37  run_command = commands.getstatusoutput(command)
+
+/Users/Diksha/projects/bucketFist/zother/spark/twitterStream.py:
+   61      jsons = json.dumps(tweetDict)
+   62      #print jsons
+   63:     #requests.post('http://hoyadisastermanagement.firebaseio.com/tasks2',json.dumps(tweetDict))
+   64:     command = "curl -X POST -d '" + str(jsons) + "' 'https://hoyadisastermanagement.firebaseio.com/tasks.json'"
+   65      run_command = commands.getstatusoutput(command)
+   66      #print run_command
+
+6 matches across 4 files
