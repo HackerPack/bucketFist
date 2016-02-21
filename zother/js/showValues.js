@@ -36,7 +36,6 @@ window.fbAsyncInit = function() {
     bucketList.on("value", function(snapshot) {
     snapshot.forEach(function(data){
     	console.log(data);
-          $("#row12").empty();
                 $("#row12").append('<tr i align=center><td class=taskId >'+data.val().What+'</td><td  class=user-name >'+data.val().Where+'</td><td>'+data.val().With+'</td><td>'+data.val().date+'</td></tr>')
 
   });
