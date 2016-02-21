@@ -23,7 +23,9 @@ window.fbAsyncInit = function() {
 getAllKeyWords(response.id,function(keywords){
 
 
-navigator.geolocation.getCurrentPosition(GetLocation);
+navigator.geolocation.getCurrentPosition(function(location){
+    GetLocation(keywords,location);
+});
 
 });
 //return data;
@@ -113,7 +115,8 @@ function getAllKeyWords(uid, callback){
   });
 }
 
-function GetLocation(location) {
+function GetLocation(keywords,location) {
+  //alert(location);
     lat = location.coords.latitude;
     lon = location.coords.longitude;
     
@@ -125,7 +128,8 @@ lon = '-77.039296';*/
 
 
 
-keywords = ["miami","museum","fort","beach","house"];
+//keywords = ["miami","museum","fort","beach","house"];
+console.log(keywords);
 var keyMap ={};
 
 for(var str in keywords)
@@ -133,7 +137,6 @@ for(var str in keywords)
     keyMap[str.toString()] = true;
 }
 
-keywords
 
 $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circle",
 {
