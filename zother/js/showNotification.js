@@ -25,8 +25,7 @@ getAllKeyWords(response.id,function(keywords){
 
 navigator.geolocation.getCurrentPosition(function(location){
     GetLocation(keywords,location,function(callback){
-      console.log("done");
-      alert("fone");
+      
       array=keywordsMatch
     id=response.id;
    
