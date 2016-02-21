@@ -93,28 +93,56 @@ function checkSessionLogin(){
 	}
 }
   // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
+ function statusChangeCallback(response) {
+
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-    	alert(response.authResponse.accessToken);
+      var data= response.authResponse.accessToken;
+    FB.api('/me?fields=location,name', function(response) {
+      console.log(response);
+      ref.child("users").child(response.id).set({
+          name: response.name,
+          location: response.location,
+          id: response.id,
+          trustLevel: "0"
+      });
+
+  window.location.href = "zother/pages/index.html";
+    });
+
+      /*FB.api('/me/friends', function(response) {
+        console.log(response);
+        id=response.data[0].id;
+        FB.api('/'+id+'?fields=location', function(response) {
+          console.log(response);
+        });
+        console.log("Taggable");
+  //  Stuff here
+    });*/
+      //window.location.href = "pages/index.html";
+      //alert(response.authResponse.accessToken);
       // Logged into your app and Facebook.
-      window.location.href = "zother/pages/index.html";
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+    } 
+    else
+    {
+      FB.login(function(response) {
+    if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
     } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+     console.log('User cancelled login or did not fully authorize.');
+      }
+  });
+
+
     }
   }
+
 
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
@@ -133,6 +161,7 @@ function checkSessionLogin(){
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.5' // use graph api version 2.5
   });
+  console.log("synched");
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the

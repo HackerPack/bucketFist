@@ -15,6 +15,7 @@
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -45,19 +46,25 @@
                     <img src="../img/bucket.png" alt="" height="200px" width="500px">
                 </div>
                 <div class="register span6">
-                    <form action="" method="post">
+                    <form action="" id="finallogin">
                         <h2>ADD to YOUR BUCKET</strong></span></h2>
-                        <label for="firstname">First Name</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="enter your first name...">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" name="lastname" placeholder="enter your first name...">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="choose a username...">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" placeholder="enter your email...">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="choose a password...">
-                        <button type="submit">REGISTER</button>
+                        <label for="what">What to do? </label>
+                        <input type="text" id="what" name="what" placeholder="I want to...">
+                        <label for="where">Where</label>
+                        <input type="text" id="where" name="where" placeholder="In...">
+                        <label for="with">With</label>
+                        <input type="text" id="with" name="with" placeholder="With...">
+                        <label for="with">By When</label>
+                        <div class="well">
+                          <div id="datetimepicker1" class="input-append date">
+                            <input data-format="dd/MM/yyyy hh:mm:ss" type="text" name="date"></input>
+                            <span class="add-on">
+                              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                              </i>
+                            </span>
+                          </div>
+                        </div>
+                        <button type="submit">Add</button>
                     </form>
                 </div>
             </div>
@@ -68,6 +75,15 @@
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../js/jquery.backstretch.min.js"></script>
         <script src="../js/scripts.js"></script>
+        <script src="../js/bootstrap-datetimepicker.min.js"></script>
+        
+        <script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'pt-BR'
+    });
+  });
+</script>
 
     </body>
 
