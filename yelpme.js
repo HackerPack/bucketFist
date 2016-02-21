@@ -54,8 +54,9 @@ function yelpdata()
   };
 
   var parameters = [];
-  parameters.push(['term', terms]);
-  parameters.push(['location', near]);
+  //parameters.push(['term', terms]);
+  //parameters.push(['location', near]);
+  parameters.push(['ll', '37.788022,-122.399797']);
   parameters.push(['oauth_consumer_key', auth.consumerKey]);
   parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
   parameters.push(['oauth_token', auth.accessToken]);
