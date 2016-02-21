@@ -402,63 +402,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="pendingTasks"></div>
-                                    <div>Pending Tasks</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="completedTasks"></div>
-                                    <div>Completed Tasks</div>
-                                </div>
-                            </div>
-                        </div>                   
-                         </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="overdueTasks"></div>
-                                    <div>Overdue Tasks</div>
-                                </div>
-                            </div>
-                        </div>                   
-                         </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div id="trustLevel"></div>
-                                    <div>Trust Level</div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>                   
-                         </div>
-                </div>
+                <button type="button" class="btn btn-primary" onclick="addToBucketList()">Add to Bucket List</button>
                 </div>
 
 
@@ -654,6 +598,11 @@
         //searchTasks();            
 
     });
+function addToBucketList()
+{
+
+    window.location.href = "addToBucketList.html"
+}
     
 
    </script>

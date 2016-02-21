@@ -1,13 +1,4 @@
-ref.onAuth(function(authData) {
-	console.log("outside if")
-	console.log(authData);
-	console.log("in");
 
-  if (authData == null) {
-  	console.log("inside if")
-    
-  }
-});
 
 function getId(authData){
 	authData = ref.getAuth();
@@ -112,7 +103,7 @@ function checkSessionLogin(){
     if (response.status === 'connected') {
     	alert(response.authResponse.accessToken);
       // Logged into your app and Facebook.
-      window.location.href = "pages/index.html";
+      window.location.href = "zother/pages/index.html";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -155,9 +146,9 @@ function checkSessionLogin(){
   //
   // These three cases are handled in the callback function.
 
-  FB.getLoginStatus(function(response) {
+  /*FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
-  });
+  });*/
 
   };
 
