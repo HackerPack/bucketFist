@@ -26,11 +26,13 @@ getAllKeyWords(response.id,function(keywords){
 navigator.geolocation.getCurrentPosition(function(location){
     //GetLocation(keywords,location,function(callback){
       
-      array=["illinois"];
+      array=["india"];
+
     id=response.id;
    
     console.log(id);
     matches = [];
+    friends = [];
 
     var bucketList = new Firebase(FIRE_BASE_URL+'/BucketList/'+id);
     bucketList.on("value", function(snapshot) {
@@ -55,6 +57,7 @@ navigator.geolocation.getCurrentPosition(function(location){
     }
 
   });
+
     for(var i=0;i<matches.length;i++)
     {
       var data = matches[i];
@@ -66,6 +69,38 @@ navigator.geolocation.getCurrentPosition(function(location){
 
       console.log(matches);
      });
+    FB.getLoginStatus(function(response) {
+      FB.api('/me/friends', function(results) {
+                for(var i = 0; i< results.data.length; i++) {
+                  var friendId = new Firebase(FIRE_BASE_URL+'/users/'+results.data[i].id);
+                  friendId.on("value", function(snapshot){
+                    if(snapshot.val())
+                    {
+                      for(var k =0;k<(array.length);k++)
+                       {
+                      if(snapshot.val().location.name.indexOf(array[k]))
+                        {
+                          if(friends.indexOf(results.data[i].id))
+                            friends.push(results.data[i]);
+                        }
+                    }
+                  }
+
+                  });
+
+                }
+for(var i=0;i<friends.length;i++)
+    {
+      var data = friends[i];
+      console.log(friends[i]);
+      /*$("#fulfillBucket").empty();
+                $("#fulfillBucket").append('<tr i align=center><td class=taskId >'+data.val().What+'</td><td  class=user-name >'+data.val().Where+'</td><td>'+data.val().With+'</td></tr>')
+*/
+    }
+    
+        });
+    });
+
 
 
 
