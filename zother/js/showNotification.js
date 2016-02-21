@@ -24,15 +24,11 @@ getAllKeyWords(response.id,function(keywords){
 
 
 navigator.geolocation.getCurrentPosition(function(location){
-    GetLocation(keywords,location);
-});
-
-});
-//return data;
-
-  	id=response.id;
-    array = [];
-    array.push("miami");
+    GetLocation(keywords,location,function(callback){
+      console.log("done");
+      alert("fone");
+      array=keywordsMatch
+    id=response.id;
    
     console.log(id);
     matches = [];
@@ -71,6 +67,15 @@ navigator.geolocation.getCurrentPosition(function(location){
 
       console.log(matches);
      });
+
+
+
+    });
+});
+
+});
+//return data;
+  
 });
   });
 };
@@ -115,7 +120,7 @@ function getAllKeyWords(uid, callback){
   });
 }
 
-function GetLocation(keywords,location) {
+function GetLocation(keywords,location,callback) {
   //alert(location);
     lat = location.coords.latitude;
     lon = location.coords.longitude;
@@ -136,7 +141,7 @@ for(var str in keywords)
 {
     keyMap[str.toString()] = true;
 }
-
+keywordsMatch=[];
 
 $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circle",
 {
@@ -145,7 +150,7 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
         longitude: lon,
         radius:'200',
         //city_name: '',
-        number_of_results: '20',
+        number_of_results: '5',
 
 }, function(data, status)
     {
@@ -164,7 +169,9 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
         {
             if(keywords.indexOf(titleStr[j].toLowerCase() ) != -1)
             {
-                console.log(pntsOfInterest[i].title+" "+pntsOfInterest[i].location.latitude+" "+pntsOfInterest[i].location.longitude );
+              if(keywordsMatch.indexOf(titleStr[j].toLowerCase())==-1)
+              keywordsMatch.push(keywords[keywords.indexOf(titleStr[j].toLowerCase())]);
+                //console.log(pntsOfInterest[i].title+" "+pntsOfInterest[i].location.latitude+" "+pntsOfInterest[i].location.longitude );
             }
 
         }
@@ -175,6 +182,7 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
 
     
     );
+callback(keywordsMatch);
 
     //alert(location.coords.longitude);
     //alert(location.coords.accuracy);
