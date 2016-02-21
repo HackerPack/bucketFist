@@ -4,6 +4,8 @@ var startLat = null;
   var endLat = null;
   var endLong = null;
   var pos = null;
+  var latitudes = [];
+  var longitudes = [];
 function initMap() {
   var origin_place_id = null;
   var destination_place_id = null;
@@ -117,7 +119,19 @@ function initMap() {
     }, function(response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
-      } else {
+        for (var i = 0; i < response.routes[0].legs.length; i++) {
+             for (var j = 0; j < response.routes[0].legs[i].steps.length; j++) {
+
+                    latitude = response.routes[0].legs[i].steps[j].end_point.lat();
+                    latitudes.push(latitude)
+                    longitude = response.routes[0].legs[i].steps[j].end_point.lng();
+                    longitudes.push(longitude)
+                    
+                 }
+            }   
+        }
+       
+      else {
         window.alert('Directions request failed due to ' + status);
       }
     });
@@ -129,21 +143,24 @@ function dateTime() {
 function addToDatabase()
 {
   console.log("hereya");
+  var date = $('input[name="date"]').val();
   var userID= getID(function(id) {
      //getFName(authData);
 
   var jsonObj={
- "UserID" : id,
  "Source" : {
      "Latitude" : startLat,
      "Longitude" : startLong
  },
+    "Latitudes" : latitudes,
+    "Longitudes" : longitudes,
  "Destination" : {
      "Latitude" : endLat,
      "Longitude" : endLong,
- }
+ },
+ "Date":date
 };
-saveTrip(jsonObj);
+saveTrip(id,jsonObj);
 
   });
  

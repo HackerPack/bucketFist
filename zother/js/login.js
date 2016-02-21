@@ -205,32 +205,5 @@ function checkSessionLogin(){
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-  function getID(callback)
-  {
-    FB.getLoginStatus(function(response) {
-      FB.api('/me', function(response) {
-        callback(response.id);
-     });
-    });
-
-  }
-
-  function addTo(callback) {
-  getID(function(id){
-
-  var what = $('input[name="what"]').val();
-  var where = $('input[name="where"]').val();
-  var withWhom = $('input[name="with"]').val();
-  var date = $('input[name="date"]').val();
-  ref.child("BucketList").push({
-    "UID":id,
-    "What":what,
-    "Where":where,
-    "Date":withWhom,
-    "date":date
-  });
-
-
-  });
-}
+ 
 
