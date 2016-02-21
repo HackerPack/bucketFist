@@ -46,7 +46,7 @@
                     <img src="../img/bucket.png" alt="" height="200px" width="500px">
                 </div>
                 <div class="register span6">
-                    <form action="" id="finallogin">
+                    <form action="javascript:void(0);" id="finallogin">
                         <h2>ADD to YOUR BUCKET</strong></span></h2>
                         <label for="what">What to do? </label>
                         <input type="text" id="what" name="what" placeholder="I want to...">
@@ -64,7 +64,7 @@
                             </span>
                           </div>
                         </div>
-                        <button type="submit">Add</button>
+                        <button type="submit" onclick="addTo()">Add</button>
                     </form>
                 </div>
             </div>
@@ -75,8 +75,10 @@
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../js/jquery.backstretch.min.js"></script>
         <script src="../js/scripts.js"></script>
-        <script src="../js/bootstrap-datetimepicker.min.js"></script>
-        
+        <script src="../js/bootstrap-datetimepicker.min.js"></script><script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+       <script src="../js/fire_base_constants.js"></script>
+       <script src="../js/login.js"></script>
+
         <script type="text/javascript">
   $(function() {
     $('#datetimepicker1').datetimepicker({
