@@ -15,8 +15,6 @@ window.fbAsyncInit = function() {
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.5' // use graph api version 2.5
   });
-	var id=" i";
-	console.log(id);
 	FB.getLoginStatus(function(response) {
   	FB.api('/me', function(response) {
   	id=response.id;
@@ -26,7 +24,7 @@ window.fbAsyncInit = function() {
     tripList.on("value", function(snapshot) {
     snapshot.forEach(function(data){
     	console.log(data);
-                $("#row13").append('<tr i align=center><td class=taskId >'+data.val().Source.Latitude + ' ' + data.val().Source.Longitude+'</td><td  class=user-name >'+data.val().Destination.Latitude+' ' + data.val().Destination.Longitude+'</td><td>'+data.val().Date+'</td></tr>')
+                $("#row13").append('<tr i align=center onclick="window.location.href=\'../pages/index2.html\'"><td class=taskId >'+data.val().Source.Latitude + ' ' + data.val().Source.Longitude+'</td><td  class=user-name >'+data.val().Destination.Latitude+' ' + data.val().Destination.Longitude+'</td><td>'+data.val().Date+'</td></tr>')
 
   });
      });

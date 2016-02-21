@@ -26,7 +26,7 @@ getAllKeyWords(response.id,function(keywords){
 navigator.geolocation.getCurrentPosition(function(location){
     //GetLocation(keywords,location,function(callback){
       
-      array=["illinois"];
+      array=["india"];
 
     id=response.id;
    
@@ -78,7 +78,7 @@ navigator.geolocation.getCurrentPosition(function(location){
                     {
                       for(var k =0;k<(array.length);k++)
                        {
-                      if(snapshot.val().location.name.indexOf(array[k])!=-1)
+                      if(snapshot.val().location.name.indexOf(array[k]))
                         {
                           if(friends.indexOf(results.data[i].id))
                             friends.push(results.data[i]);
