@@ -132,7 +132,7 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
                 position: latLng,
                 title: pntsOfInterest[i].title,
                 map: map,
-                icon: "/zother/img/marker-pin.png"
+                icon: "/zother/img/marker-pin-small.png"
                 //draggable: true
             });
         }
