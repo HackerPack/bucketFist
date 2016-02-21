@@ -21,9 +21,10 @@ var ref = new Firebase("https://docs-examples.firebaseio.com/web/saving-data/fir
 
 
 <script>
-//findLandmarks();
-yelpdata();
+findLandmarks();
+yelpdata();//createWish(true,[]);
 //createWish(true,[]);
+//findLandmarks();
 //monitorWishes();
 //console.log(d);
 </script>
@@ -38,6 +39,9 @@ yelpdata();
   <li>List item 2</li>
   <li>List item 3</li>
 </ol>
+<div >
+<p id="load"></p>
+</div>
 
 <button id="btn1">Append text</button>
 <button id="btn2">Append list items</button>

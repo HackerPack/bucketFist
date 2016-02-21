@@ -3,15 +3,15 @@ function createWish(doExtract,keyArray)
 	var myFirebaseRef = new Firebase(FIRE_BASE_URL+WISH_TABLE).push()	;
 	if(doExtract == true)
 	{
-		extractKeywords('win hackathon and then go party in miami');
+		extractKeywords('gautam punch taht pundai in the face');
 	}
 	//console.log(encodeURI('win hackathon and then go party in miami'));
 	
 	else
 		{
-			myFirebaseRef.set({
+		myFirebaseRef.set({
 		user:'rakesh',
-		wish:'win hackathon and then go party in miami',
+		wish:'gautam punch taht pundai in the face',
 		keywords: keyArray
 	});
 		}
@@ -39,6 +39,7 @@ function extractKeywords(textwish)
     	}
         
         createWish(false,keyArray);
+        suggest(keyArray);
         //alert("Data: " + data + "\nStatus: " + status);
         /*var pntsOfInterest = data['points_of_interest'];
         
@@ -49,6 +50,11 @@ function extractKeywords(textwish)
 
         }*/
     });
+}
+
+function suggest(keywords)
+{
+
 }
 
 function monitorWishes()
