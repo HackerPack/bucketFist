@@ -337,6 +337,12 @@ window.fbAsyncInit = function() {
     "With":withWhom,
     "date":date,
     "keyword": keyword
+  }, function(error){
+    if(!error)
+    {
+      alert("BucketList added successfully");
+    }
+
   });
 
   });
@@ -418,5 +424,8 @@ function getAllKeyWords(uid, callback){
     
   });
 }
+
+
+
 
 
