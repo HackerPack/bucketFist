@@ -22,7 +22,15 @@ window.fbAsyncInit = function() {
   	id=response.id;
    
     console.log(id);
+var tripList = new Firebase(FIRE_BASE_URL+'/Trips/'+id);
+    tripList.on("value", function(snapshot) {
+    snapshot.forEach(function(data){
+    	console.log(data);
+          $("#row13").empty();
+                $("#row13").append('<tr i align=center><td class=taskId >'+data.val().Source.Latitude + ' ' + data.val().Source.Longitude+'</td><td  class=user-name >'+data.val().Destination.Latitude+' ' + data.val().Destination.Longitude+'</td><td>'+data.val().Date+'</td></tr>')
 
+  });
+     });
 
     var bucketList = new Firebase(FIRE_BASE_URL+'/BucketList/'+id);
     bucketList.on("value", function(snapshot) {

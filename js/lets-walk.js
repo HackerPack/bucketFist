@@ -129,11 +129,11 @@ function dateTime() {
 function addToDatabase()
 {
   console.log("hereya");
+  var date = $('input[name="date"]').val();
   var userID= getID(function(id) {
      //getFName(authData);
 
   var jsonObj={
- "UserID" : id,
  "Source" : {
      "Latitude" : startLat,
      "Longitude" : startLong
@@ -141,9 +141,10 @@ function addToDatabase()
  "Destination" : {
      "Latitude" : endLat,
      "Longitude" : endLong,
- }
+ },
+ "Date":date
 };
-saveTrip(jsonObj);
+saveTrip(id,jsonObj);
 
   });
  
