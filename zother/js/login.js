@@ -170,7 +170,6 @@ function checkSessionLogin(){
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.5' // use graph api version 2.5
   });
-  console.log("synched");
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
@@ -183,10 +182,7 @@ function checkSessionLogin(){
   //    your app or not.
   //
   // These three cases are handled in the callback function.
-
-  /*FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });*/
+ console.log("gell");
 
   };
 
@@ -209,4 +205,32 @@ function checkSessionLogin(){
         'Thanks for logging in, ' + response.name + '!';
     });
   }
+  function getID(callback)
+  {
+    FB.getLoginStatus(function(response) {
+      FB.api('/me', function(response) {
+        callback(response.id);
+     });
+    });
+
+  }
+
+  function addTo(callback) {
+  getID(function(id){
+
+  var what = $('input[name="what"]').val();
+  var where = $('input[name="where"]').val();
+  var withWhom = $('input[name="with"]').val();
+  var date = $('input[name="date"]').val();
+  ref.child("BucketList").push({
+    "UID":id,
+    "What":what,
+    "Where":where,
+    "Date":withWhom,
+    "date":date
+  });
+
+
+  });
+}
 
