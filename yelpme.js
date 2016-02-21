@@ -77,14 +77,18 @@ function yelpdata()
   var urlVar = OAuth.addToURL(message.action,parameterMap);
 
 
-$.ajax(urlVar,{crossDomain:true},function(data, status)
-    {
+$.ajax({
+    url: 'http://cors.io/?u='+urlVar,
+     //headers: { 'Access-Control-Allow-Origin': '*' },
+     //  crossDomain: true,
+       success: function(data, status)
+       {
        
         console.log(JSON.stringify(data));
         
 
         
-    });
+    }});
 
 
 
