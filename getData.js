@@ -1,11 +1,20 @@
 
 
 //function findLandmarks(keywords,lat,lon)
-function findLandmarks()
-{
+var lat =0.0;
+var lon = 0.0;
 
-lat = '38.932923';
-lon = '-77.039296';
+function GetLocation(location) {
+
+    alert(location.coords.latitude);
+    lat = location.coords.latitude;
+    lon = location.coords.longitude;
+    
+
+    console.log(lat+" "+lon);
+
+/*lat = '38.932923';
+lon = '-77.039296';*/
 
 
 
@@ -56,6 +65,19 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
 
     
     );
+
+    //alert(location.coords.longitude);
+    //alert(location.coords.accuracy);
+}
+
+function findLandmarks()
+{
+
+navigator.geolocation.getCurrentPosition(GetLocation);
+
+
+
+
 
 //return data;
 
