@@ -20,26 +20,45 @@ window.fbAsyncInit = function() {
 	FB.getLoginStatus(function(response) {
   	FB.api('/me', function(response) {
   	id=response.id;
+    array = [];
+    array.push("miami");
    
     console.log(id);
-	var tripList = new Firebase(FIRE_BASE_URL+'/Trips/'+id);
-    tripList.on("value", function(snapshot) {
-    snapshot.forEach(function(data){
-    	console.log(data);
-          $("#row13").empty();
-                $("#row13").append('<tr i align=center><td class=taskId >'+data.val().Source.Latitude + ' ' + data.val().Source.Longitude+'</td><td  class=user-name >'+data.val().Destination.Latitude+' ' + data.val().Destination.Longitude+'</td><td>'+data.val().Date+'</td></tr>')
-
-  });
-     });
+    matches = [];
 
     var bucketList = new Firebase(FIRE_BASE_URL+'/BucketList/'+id);
     bucketList.on("value", function(snapshot) {
     snapshot.forEach(function(data){
-    	console.log(data);
-          $("#row12").empty();
-                $("#row12").append('<tr i align=center><td class=taskId >'+data.val().What+'</td><td  class=user-name >'+data.val().Where+'</td><td>'+data.val().With+'</td><td>'+data.val().date+'</td></tr>')
+      var myArray = data.val().keyword;
+      if(myArray!=null)
+      {
+      for(var i=0; i < myArray.length; i++)
+      {
+        var arr = myArray[i].split(" ");
+        for(var j=0; j < arr.length; j++)
+        {
+          for(var k =0;k<(array.length);k++)
+            {
+                if(array[k]==arr[j].toLowerCase())
+                {
+                    matches.push(data);
+                }
+            }
+        }
+      }
+    }
 
   });
+    for(var i=0;i<matches.length;i++)
+    {
+      var data = matches[i];
+      console.log(matches[i].val());
+      $("#fulfillBucket").empty();
+                $("#fulfillBucket").append('<tr i align=center><td class=taskId >'+data.val().What+'</td><td  class=user-name >'+data.val().Where+'</td><td>'+data.val().With+'</td></tr>')
+
+    }
+
+      console.log(matches);
      });
 });
   });
