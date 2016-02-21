@@ -330,6 +330,8 @@ window.fbAsyncInit = function() {
   var date = $('input[name="date"]').val();
   var textWish = what + ' ' + where;
   extractKeywords(textWish, function(keyword){
+    console.log(keyword);
+    console.log("these key");
 
   ref.child("BucketList").child(id).push({
     "What":what,
@@ -341,6 +343,8 @@ window.fbAsyncInit = function() {
     if(!error)
     {
       alert("BucketList added successfully");
+      window.location.href="showBucketList.html";
+      
     }
 
   });
