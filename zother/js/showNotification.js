@@ -24,9 +24,9 @@ getAllKeyWords(response.id,function(keywords){
 
 
 navigator.geolocation.getCurrentPosition(function(location){
-    GetLocation(keywords,location,function(callback){
+    //GetLocation(keywords,location,function(callback){
       
-      array=keywordsMatch
+      array=["illinois"];
     id=response.id;
    
     console.log(id);
@@ -69,7 +69,7 @@ navigator.geolocation.getCurrentPosition(function(location){
 
 
 
-    });
+    //});
 });
 
 });
