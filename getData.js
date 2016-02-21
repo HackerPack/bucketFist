@@ -28,7 +28,7 @@ function initMap() {
       var latLng = new google.maps.LatLng(pos.lat, pos.lng);
                 var marker = new google.maps.Marker({
                     position: latLng,
-                    title: 'Point A',
+                    title: 'My Location',
                     map: map
                     //draggable: true
                 });
@@ -67,7 +67,7 @@ lon = '-77.039296';*/
 
 
 
-keywords = ["miami","museum","fort","beach","house"];
+keywords = ["miami","museum","fort","beach","house", "gym", "dive"];
 var keyMap ={};
 
 for(var str in keywords)
@@ -93,58 +93,46 @@ $.get("https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-circl
          // var infowindow = new google.maps.InfoWindow();
          var marker, i;
 
-    // for (i = 0; i < pntsOfInterest.length; i++) {  
-    //   marker = new google.maps.Marker({
-    //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-    //     map: map
-    //   });
-
-      // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      //   return function() {
-      //     // infowindow.setContent(locations[i][0]);
-      //     // infowindow.open(map, marker);
-      //   }
-      // })(marker, i));}
-
-      console.log("============================"+pntsOfInterest.length)
+      console.log("============================"+pntsOfInterest)
 
         for(i=0; i<pntsOfInterest.length;i++)
         {
         //console.log(JSON.stringify(data));
             var titleStr =[];
-            var placeFound = false;
+            placeFound = false;
         
         
         titleStr= pntsOfInterest[i].title.split(" ");
         for(j =0;j<titleStr.length;j++)
         {
-            console.log("---------------");
-            console.log(titleStr[j]);
+            // console.log("---------------");
+            // console.log(titleStr[j]);
             if(keywords.indexOf(titleStr[j].toLowerCase() ) != -1) {
                 placeFound = true;
-                marker = new google.maps.Marker({
-                position: new google.maps.LatLng(pntsOfInterest[i][1], pntsOfInterest[i][2]),
-                map: map });
-                console.log("--------------------asasasdsdsd---------------");
+                // marker = new google.maps.Marker({
+                // position: new google.maps.LatLng(pntsOfInterest[i][1], pntsOfInterest[i][2]),
+                // map: map });
+                // console.log("--------------------asasasdsdsd---------------");
 
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    // infowindow.setContent(pntsOfInterest[i][0]);
-                    // infowindow.open(map, marker);
-                }})(marker, i));
+
+                // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                // return function() {
+                //     // infowindow.setContent(pntsOfInterest[i][0]);
+                //     // infowindow.open(map, marker);
+                // }})(marker, i));
                     break;
             }
            
 
         }
-
-        if(!placeFound){
-            console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&tryging to print locations")
-            var latLng = new google.maps.LatLng(pntsOfInterest[i][1], pntsOfInterest[i][2]);
+        if(placeFound){
+            // alert(pntsOfInterest[i].location.latitude);
+            var latLng = new google.maps.LatLng(pntsOfInterest[i].location.latitude, pntsOfInterest[i].location.longitude);
             var marker = new google.maps.Marker({
                 position: latLng,
-                title: 'Point A',
-                map: map
+                title: pntsOfInterest[i].title,
+                map: map,
+                icon: "/zother/img/marker-pin.png"
                 //draggable: true
             });
         }
@@ -173,5 +161,5 @@ navigator.geolocation.getCurrentPosition(GetLocation);
 
 }
 
-findLandmarks();
+
 
