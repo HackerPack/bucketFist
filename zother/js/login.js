@@ -139,6 +139,7 @@ function checkSessionLogin(){
       });
 
   window.location.href = "zother/pages/index.html";
+});
      FB.api('/me', function(response) {
        console.log('Good to see you, ' + response.name + '.');
      });
