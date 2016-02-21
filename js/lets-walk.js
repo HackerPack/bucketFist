@@ -3,6 +3,7 @@ var startLat = null;
   var startLong = null;
   var endLat = null;
   var endLong = null;
+  var pos = null;
 function initMap() {
   var origin_place_id = null;
   var destination_place_id = null;
@@ -127,13 +128,12 @@ function dateTime() {
 }
 function addToDatabase()
 {
-  var inputDateTime = document.getElementById('datetimepicker2');
-  
-  var authName= "da";
-  //getFName(authData);
+  console.log("hereya");
+  var userID= getID(function(id) {
+     //getFName(authData);
 
   var jsonObj={
- "FirstName" : authName,
+ "UserID" : id,
  "Source" : {
      "Latitude" : startLat,
      "Longitude" : startLong
@@ -141,10 +141,15 @@ function addToDatabase()
  "Destination" : {
      "Latitude" : endLat,
      "Longitude" : endLong,
- },
- "ArrivingTime" : inputDateTime.value
+ }
 };
-SaveTrip(jsonObj);
-alert("Congratulations, Please go to Share a Walk page to see who you can share with");
+saveTrip(jsonObj);
 
+  });
+ 
+alert("Have a safe journey!");
+
+}
+function getCurrentPosition(callback) {
+  callback(pos);
 }

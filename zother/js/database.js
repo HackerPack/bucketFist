@@ -64,6 +64,13 @@ function saveTask(task, callback){
     taskRef.update(object, callback);
   });
 }
+function saveTrip(trip, callback){
+  ref.child("Trips").push(trip);
+  var tripRef = new Firebase(FIRE_BASE_URL+TRIPS_TABLE);
+ /* trip.forEach(function(object){
+    tripRef.update(object, callback);
+  });*/
+}
   
 function takeTask(uid, requestID, callback){
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE+requestID);
