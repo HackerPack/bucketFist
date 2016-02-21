@@ -396,8 +396,26 @@ function getAllKeyWords(uid, callback){
         for(var j=0; j < arr.length; j++)
           return_data.push(arr[j]);
       }
+      FB.getLoginStatus(function(response) {
+      FB.api('/me/friends', function(results) {
+          console.log(results);
+                for(var i = 0; i< results.data.length; i++) {
+                  var friendId = new Firebase(FIRE_BASE_URL+'/users/'+results.data[i].id);
+                  friendId.on("value", function(snapshot){
+                    if(snapshot.val())
+                    {
+                    console.log(snapshot.val().location.name);
+                  return_data.push(snapshot.val().location.name);}
+                    callback(return_data);
+                  });
+
+                }
+
+    
+        });
+      });
     });
-    callback(return_data);
+    
   });
 }
 
