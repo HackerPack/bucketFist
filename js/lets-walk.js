@@ -6,6 +6,7 @@ var startLat = null;
   var pos = null;
   var latitudes = [];
   var longitudes = [];
+  var map=null;
 function initMap() {
   var origin_place_id = null;
   var destination_place_id = null;

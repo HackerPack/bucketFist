@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>BucketFist</title>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
@@ -35,15 +37,9 @@
          <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
    <script src="../js/fire_base_constants.js"></script>
-   <script src="../js/showNotification.js"></script>
 
-<script src="../../getData.js"></script>
-<script src="../../sha1.js"></script>
-
-<script src="../../yelpme.js"></script>
-<script src="../../firebaseConstant.js"></script>
-<script src="../../newWish.js"></script>
-
+    <script src="../js/database.js"></script>
+   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -219,7 +215,7 @@
         .notifo{
  
         }
-        .map{
+        .mapholder{
             position: absolute;
             display: inline;
             top: 37%;
@@ -228,6 +224,16 @@
             margin: 5px 5px 5px 5px;
             background-color: bisque;
         }
+         #map {
+            width: 500px;
+            height: 400px;
+            top: 37%;
+            right: 10%;
+            position: absolute;
+            display: inline;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            margin: 5px 5px 5px 5px;
+      }
     </style>
 
 
@@ -538,11 +544,11 @@
  <div class="notif2">
  <h3><strong>Along your way</strong></h3>
  </div> 
-    <div class="map">
+    <!-- <div class="mapholder"> -->
 
-<div id="mapholder"></div>
+<div id="map"></div>
 
-<script>
+<!--<script>
 
 var x = document.getElementById("demo");
 
@@ -554,14 +560,7 @@ function getLocation() {
     }
 }
 
-getLocation();
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
 
-    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=2500x500&sensor=false";
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-}
 
 function showError(error) {
     switch(error.code) {
@@ -579,9 +578,9 @@ function showError(error) {
             break;
     }
 }
-</script>
+</script>-->
 
-</div>
+<!-- </div> -->
             
             
             
@@ -620,5 +619,10 @@ function ShowBucket(){
 
    </script>
 
+   
+    <script src="../js/disaster.js"></script>
+    <script src="../../getData.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQf4f8pMlnmHj__IkX_fKLcjRL5VtGMTE&signed_in=true&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 </html>
