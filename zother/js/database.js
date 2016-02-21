@@ -378,5 +378,27 @@ function extractKeywords(textwish, callback)
         }*/
     });
 }
+uid="10153219931661621";
+getAllKeyWords(uid, function(result)
+{
+  console.log(result);
+});
+function getAllKeyWords(uid, callback){
+  var return_data = [];
+  var bookRef = new Firebase(FIRE_BASE_URL+'/BucketList/'+uid);
+  bookRef.on("value", function(snapshot) {
+    snapshot.forEach(function(data){
+      console.log(data.val().keyword);
+      var myArray = data.val().keyword;
+      for(var i=0; i < myArray.length; i++)
+      {
+        var arr = myArray[i].split(" ");
+        for(var j=0; j < arr.length; j++)
+          return_data.push(arr[j]);
+      }
+    });
+    callback(return_data);
+  });
+}
 
 
